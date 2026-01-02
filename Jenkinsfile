@@ -1,5 +1,10 @@
 pipeline{
     agent any
+    environment{
+        IMAGE_NAME=hothaifa
+        ENV=PROD
+        TAG=$BUILD_NUMBER
+    }
 
     stages{
         stage("checkout code"){
@@ -11,14 +16,14 @@ pipeline{
         stage("build image"){
             steps{
                 sh 'sleep 4'
-                sh 'echo building image ........'
+                sh 'echo building image $IMAGE_NAME:v$TAG'
             }
         }
 
         stage("test"){
             steps{
                 sh 'echo unit test '
-                sh 'gadsfsafsaf generating report '
+                sh 'echo generating report '
                 sh 'echo push report '
             }
         }
