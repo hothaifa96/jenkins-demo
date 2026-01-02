@@ -3,7 +3,7 @@ pipeline{
     environment{
         IMAGE_NAME='hothaifa'
         ENV='PROD'
-        TAG='$BUILD_NUMBER'
+        TAG='$env.BUILD_NUMBER'
     }
 
     stages{
