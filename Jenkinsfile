@@ -10,6 +10,7 @@ pipeline{
 
         stage("build image"){
             steps{
+                sh 'sleep 4'
                 sh 'echo building image ........'
             }
         }
@@ -17,7 +18,7 @@ pipeline{
         stage("test"){
             steps{
                 sh 'echo unit test '
-                sh 'echo generating report '
+                sh 'gadsfsafsaf generating report '
                 sh 'echo push report '
             }
         }
