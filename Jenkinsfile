@@ -1,9 +1,9 @@
 pipeline{
     agent any
     environment{
-        IMAGE_NAME=hothaifa
-        ENV=PROD
-        TAG=$BUILD_NUMBER
+        IMAGE_NAME='hothaifa'
+        ENV='PROD'
+        TAG='$BUILD_NUMBER'
     }
 
     stages{
