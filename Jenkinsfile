@@ -10,7 +10,7 @@ pipeline{
         stage("checkout code"){
             steps{
                 timeout(time: 3 , unit:'SECONDS'){
-                    sh 'sleep 5'
+                    // sh 'ping -c 5 google.com'
                     sh 'curl google.com'
                 }
                 sh 'echo checking the code'
@@ -19,6 +19,9 @@ pipeline{
 
         stage("build image"){
             steps{
+                retry(3){
+                    sh 'curl hgfuiaeihgipahspg.caksochaspo'
+                }
                 sh 'sleep 4'
                 sh 'echo building image $IMAGE_NAME:v$TAG'
             }
