@@ -33,8 +33,17 @@ pipeline{
                 }
             }
             stage("penetaration test "){
-                steps{
-                    sh 'dockerg pen'
+                parallel{
+                    stage("testing route53 AAA record"){
+                        steps{
+                            sh 'echo testingg ......'
+                        }
+                    }
+                    stage("testing route53 lll record"){
+                        steps{
+                            sh 'echo testingg ......'
+                        }
+                    }
                 }
             }
             stage("sanity test"){
