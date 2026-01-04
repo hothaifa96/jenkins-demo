@@ -1,46 +1,61 @@
 pipeline{
     agent any
-    environment{
-        IMAGE_NAME='hothaifa'
-        ENV='PROD'
-        TAG='1'
-    }
 
     stages{
         stage("checkout code"){
             steps{
-                timeout(time: 3 , unit:'SECONDS'){
-                    // sh 'ping -c 5 google.com'
-                    sh 'curl google.com'
-                }
                 sh 'echo checking the code'
             }
         }
+        
 
         stage("build image"){
             steps{
-                retry(3){
-                    sh 'curl hgfuiaeihgipahspg.caksochaspo'
-                }
-                sh 'sleep 4'
                 sh 'echo building image $IMAGE_NAME:v$TAG'
             }
         }
 
-        stage("test"){
-            steps{
-                sh 'echo unit test '
-                sh 'echo generating report '
-                sh 'echo push report '
+        stage("test"){ // unit ,system, integration,penmtraition, sanity
+           parallel{
+            stage("unit test"){
+                steps{
+                    sh 'echo unit'
+                }
             }
+            stage("system test"){
+                steps{
+                    sh 'echo system'
+                }
+            }
+            stage("integration test"){
+                steps{
+                    sh 'echo inte'
+                }
+            }
+            stage("penetaration test "){
+                steps{
+                    sh 'echo pen'
+                }
+            }
+            stage("sanity test"){
+                steps{
+                    sh 'echo san'
+                }
+            }
+            stage("smoke test"){
+                steps{
+                    sh 'echo smoke'
+                }
+            }
+           }
         }
+
         stage("push image"){
             steps{
-                sh "date > file.txt"
-                sh "ls "
-                sh "echo this is whats uppp"
+               
+                    sh 'terraform apply'
+                
+               }
             }
-        }
     }
-
-}
+} 
