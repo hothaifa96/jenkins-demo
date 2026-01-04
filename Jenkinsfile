@@ -33,17 +33,8 @@ pipeline{
                 }
             }
             stage("penetaration test "){
-                parallel{
-                    stage("testing route53 AAA record"){
-                        steps{
-                            sh 'echo testingg ......'
-                        }
-                    }
-                    stage("testing route53 lll record"){
-                        steps{
-                            sh 'echo testingg ......'
-                        }
-                    }
+                steps{
+                    sh 'echo fgdsaf'
                 }
             }
             stage("sanity test"){
