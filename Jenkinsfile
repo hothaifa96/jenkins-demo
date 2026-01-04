@@ -11,7 +11,7 @@ pipeline{
             steps{
                 sh 'echo building image $IMAGE_NAME:v$TAG'
             }
-        }
+        
         post{
         success{
             sh 'echo push it '
@@ -19,6 +19,8 @@ pipeline{
         failure{
             sh 'docker rm -f jenk'
         }
+
+}
     }
 
         stage("test"){ // unit ,system, integration,penmtraition, sanity
