@@ -34,7 +34,7 @@ pipeline{
             }
             stage("penetaration test "){
                 steps{
-                    sh 'echo pen'
+                    sh 'dockerg pen'
                 }
             }
             stage("sanity test"){
@@ -53,7 +53,7 @@ pipeline{
         stage("push image"){
             steps{
                
-                    sh 'terraform apply'
+                    sh 'echo apply'
                 
                }
             }
