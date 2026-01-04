@@ -7,8 +7,6 @@ pipeline{
                 sh 'echo checking the code'
             }
         }
-        
-
         stage("build image"){
             steps{
                 sh 'echo building image $IMAGE_NAME:v$TAG'
@@ -57,5 +55,13 @@ pipeline{
                 
                }
             }
+    }
+    post{
+        success{
+            sh 'echo build passed'
+        }
+        failure{
+            sh 'echo failure '
+        }
     }
 } 
