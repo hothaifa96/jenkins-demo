@@ -9,6 +9,9 @@ pipeline{
     stages{
         stage("checkout code"){
             steps{
+                timeout(time: 3 , unit:'SECONDS'){
+                    sh 'curl google.com'
+                }
                 sh 'echo checking the code'
             }
         }
